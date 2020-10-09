@@ -9,5 +9,5 @@ lectura(PDF) ,en el caso de los profesores, y vender libros, en caso de los alum
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Grupo constituido por:
-Palomeque Ignacio
+Palomeque Ignacio,
 Pepi Gino
