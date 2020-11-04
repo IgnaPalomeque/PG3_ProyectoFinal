@@ -4,12 +4,26 @@ from django.db import models
 
 
 class Curso (models.Model):
-    divisiones = [
-        ("A","A"), 
-        ("B","B"),
-        ("C","C"),
+    anios = [
+        ("1","1 año"), 
+        ("2","2 año"),
+        ("3","3 año"),
+        ("4","4 año"), 
+        ("5","5 año"),
+        ("6","6 año"),
+        ("7","7 año"),
     ]
-    division = models.CharField(max_length= 1, choices = divisiones,)
+    anio = models.CharField(max_length= 10,choices = anios, null=True)
+    divisiones = [
+        ("°A","°A"), 
+        ("°B","°B"),
+        ("°C","°C"),
+    ]
+    division = models.CharField(max_length= 10,choices = divisiones)
+
+    def __str__(self):
+        temp = (str(self.anio) + str(self.division))
+        return temp
 
 class Persona (models.Model):
     dni = models.IntegerField(primary_key=True)
@@ -19,6 +33,11 @@ class Persona (models.Model):
 
 class Alumno (Persona):
     curso = models.ForeignKey('Curso', on_delete=models.CASCADE, null=True,)
+
+    def __str__(self):
+        temp = (str(self.apellido)+ " " + str(self.nombre))
+        return temp
+
 
 class Profesor (Persona):
     cursos = []

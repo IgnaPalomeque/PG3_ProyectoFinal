@@ -27,7 +27,11 @@ class LibroEnVentaAdmin (admin.ModelAdmin):
 class MateriaDescargableAdmin (admin.ModelAdmin):
     list_display = ('titulo','materia',)
 
+class CursoAdmin (admin.ModelAdmin):
+    list_display = ('anio','division',)
+
 admin.site.register (MateriaDescargable,MateriaDescargableAdmin,)
 admin.site.register (LibroEnVenta,LibroEnVentaAdmin,)
 admin.site.register (Alumno,AlumnoAdmin,)
 admin.site.register (Profesor,ProfesorAdmin,)
+admin.site.register (Curso,CursoAdmin,)
