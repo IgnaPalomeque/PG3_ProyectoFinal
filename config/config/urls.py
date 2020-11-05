@@ -20,5 +20,6 @@ from config import settings
 
 urlpatterns = [
     path('', include('bibliovirtual.urls')),
+    path('jet/', include('jet.urls', 'jet')),
     path('admin/', admin.site.urls),
 ]
