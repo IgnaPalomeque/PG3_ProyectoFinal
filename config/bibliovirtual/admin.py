@@ -25,13 +25,20 @@ class LibroEnVentaAdmin (admin.ModelAdmin):
     list_display = ('titulo','materia', 'descripcion')
 
 class MateriaDescargableAdmin (admin.ModelAdmin):
-    list_display = ('titulo','materia',)
-
-class CursoAdmin (admin.ModelAdmin):
-    list_display = ('anio','division',)
+    fieldsets = (
+            ('Información material', {
+                'fields': (
+                    'titulo', 'materia', 'curso',
+                ),
+            }),
+            ('Informacion extra', {
+                'fields': (
+                    'foto_portada', 'descripcion',
+                ),
+            }),
+        )
 
 admin.site.register (MateriaDescargable,MateriaDescargableAdmin,)
 admin.site.register (LibroEnVenta,LibroEnVentaAdmin,)
 admin.site.register (Alumno,AlumnoAdmin,)
 admin.site.register (Profesor,ProfesorAdmin,)
-admin.site.register (Curso,CursoAdmin,)
