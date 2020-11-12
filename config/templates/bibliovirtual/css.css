@@ -1,0 +1,36 @@
+.bdiv{
+    background-color: white;
+    margin: auto;
+    position: relative;
+    border-radius: 4px;
+    top: 80Px;
+    width: 400px;
+    height: 350px;
+    text-align: center;
+}
+.sdiv{
+    position: relative;
+    top: 50px;
+    margin: auto;
+    width: 175px;
+}
+body{
+    background-color: #354052;
+}
+.left{
+    text-align: left;
+}
+.centered{
+    position: relative;
+    top: 30px;
+}
+.borderL{
+    position: relative;
+    top: 80px;
+    right: 130px;
+}
+.borderR{
+    position: relative;
+    top: 45px;
+    left: 130px;
+}

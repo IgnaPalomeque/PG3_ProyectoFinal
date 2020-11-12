@@ -14,7 +14,7 @@ class ProfesorAdmin (admin.ModelAdmin):
 class AlumnoAdmin (admin.ModelAdmin):
     fieldsets = (
         ('Datos', {
-            'fields': ('apellido','nombre','dni','curso')
+            'fields': ('apellido','nombre','dni','curso','user')
         }),
     )
     search_fields = ['apellido','dni']
@@ -37,8 +37,11 @@ class MateriaDescargableAdmin (admin.ModelAdmin):
                 ),
             }),
         )
+class CursoAdmin (admin.ModelAdmin):
+    list_display = ('anio','division',)
 
 admin.site.register (MateriaDescargable,MateriaDescargableAdmin,)
 admin.site.register (LibroEnVenta,LibroEnVentaAdmin,)
 admin.site.register (Alumno,AlumnoAdmin,)
 admin.site.register (Profesor,ProfesorAdmin,)
+admin.site.register (Curso,CursoAdmin,) 
