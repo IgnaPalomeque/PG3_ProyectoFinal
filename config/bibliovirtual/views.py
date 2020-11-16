@@ -8,3 +8,4 @@ from django.contrib.auth.models import User
 
 def login (request):
     return render (request, 'bibliovirtual/login.html')
+    
