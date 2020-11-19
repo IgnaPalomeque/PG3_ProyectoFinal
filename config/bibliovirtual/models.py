@@ -17,9 +17,9 @@ class Curso (models.Model):
     ]
     anio = models.CharField(max_length= 10,choices = anios, null=True)
     divisiones = [
-        ("°A","°A"), 
-        ("°B","°B"),
-        ("°C","°C"),
+        ("A","°A"), 
+        ("B","°B"),
+        ("C","°C"),
     ]
     division = models.CharField(max_length= 10,choices = divisiones)
 

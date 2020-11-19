@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+{% block content %}
 <body>
     <h1>Hola {{user.username}}</h1>
     {% for i in alumno %}
-        <h1>{{i.dni}}</h1>
+        <h1>hola{{ i.nombre }}</h1>
     {% endfor %}
-    
 </body>
+{% endblock %}
 </html>

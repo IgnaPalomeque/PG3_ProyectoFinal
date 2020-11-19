@@ -21,5 +21,5 @@ def register(request):
     return render(request, 'registration/register.html', {'form': form})
 
 def profesoroalumno (request):
-    alumno = Alumno.objects.only('dni')
-    return render (request, 'bibliovirtual/home.html',{'alumno':alumno})
+    alumno = Alumno.objects.only('nombre')
+    return render (request, 'bibliovirtual/home.html', {'alumno':alumno})
