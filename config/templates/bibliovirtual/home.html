@@ -7,5 +7,9 @@
 </head>
 <body>
     <h1>Hola {{user.username}}</h1>
+    {% for i in alumno %}
+        <h1>{{i.dni}}</h1>
+    {% endfor %}
+    
 </body>
 </html>

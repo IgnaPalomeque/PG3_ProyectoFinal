@@ -7,4 +7,5 @@ urlpatterns = [
     path('',register),
     path('login',LoginView.as_view(),name="login_url"),
     path('home',home)
+    path('prueba',profesoroalumno, name="prueba_url"),
 ]
