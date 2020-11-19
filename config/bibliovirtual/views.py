@@ -1,11 +1,20 @@
-from django.shortcuts import render
-from django.views.generic import TemplateView
-from django.contrib.auth import authenticate
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.models import User
+from django.shortcuts import render,redirect
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
-def login (request):
-    return render (request, 'bibliovirtual/login.html')
-    
+@login_required
+def home(request):
+    return render(request,'bibliovirtual/home.html')
+
+def register(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("login_url")
+    else:
+        form = UserCreationForm()
+
+    return render(request, 'registration/register.html', {'form': form})

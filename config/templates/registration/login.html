@@ -11,23 +11,27 @@
     <title>Iniciar Sesion</title>
   </head>
   <body>
+    {% block content %}
+    
     <div class="container" style="width: 250px;">
         
-        <form class="px-4 py-3">
-          <div class="form-group">
-            <label for="exampleDropdownFormEmail1">D.N.I</label>
-            <input type="number" class="form-control" id="exampleDropdownFormEmail1" placeholder="D.N.I">
-          </div>
-          <div class="form-group">
-            <label for="exampleDropdownFormPassword1">Contraseña</label>
-            <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña">
-          </div>
-          <button type="submit" class="btn btn-primary">Iniciar sesion</button>
+        <form class="px-4 py-3" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="exampleDropdownFormEmail1">D.N.I</label>
+                <input type="text" class="form-control" id="exampleDropdownFormEmail1" placeholder="Username" name="username">
+            </div>
+            <div class="form-group">
+                <label for="exampleDropdownFormPassword1">Contraseña</label>
+                <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña" name="password">
+            </div>
+            <button type="submit" class="btn btn-primary">Iniciar sesion</button>
         </form>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="#">¿No tienes una cuenta? Solicitala</a>
         <a class="dropdown-item" href="#">¿Olvidaste tu contraseña?</a>
     </div>
+    {% endblock %}
 
 
 
