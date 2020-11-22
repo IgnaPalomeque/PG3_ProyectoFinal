@@ -32,3 +32,12 @@ def logoutView(request):
 def accountView(request):
 
     return render(request, "bibliovirtual/account.html",)
+
+def alumnooprofesor(request):
+    user = User.objects.last()
+    persona = Persona.objects.last()
+
+    if user.persona.tipo == "Profesor":
+        return render (request, 'bibliovirtual/home.html')
+    else:
+        return render(request, 'registration/register.html')

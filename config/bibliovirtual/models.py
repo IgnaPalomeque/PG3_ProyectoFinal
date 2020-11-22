@@ -28,20 +28,17 @@ class Curso (models.Model):
         return temp
 
 class Persona (models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     dni = models.IntegerField(primary_key=True)
-    nombre = models.CharField(max_length= 10)
-    apellido = models.CharField(max_length= 10)
-    contraseña = models.CharField(max_length= 20)
+    tipo = models.CharField(max_length = 12, null=True)
     
     
 
 class Alumno (Persona):
     curso = models.ForeignKey('Curso', on_delete=models.CASCADE, null=True,)
-    user = models.OneToOneField(User, null=True, on_delete = models.CASCADE)
-    user.username = Persona.dni
-    user.first_name = Persona.nombre
-    user.last_name = Persona.apellido
-    user.password = Persona.contraseña
+    nombre = models.CharField(max_length= 10, null=True)
+    apellido = models.CharField(max_length= 10, null=True)
+    contraseña = models.CharField(max_length= 20, null=True)
 
     def __str__(self):
             temp = (str(self.apellido)+ " " + str(self.nombre))
@@ -50,6 +47,9 @@ class Alumno (Persona):
 
 class Profesor (Persona):
     cursos = []
+    nombre = models.CharField(max_length= 10, null=True)
+    apellido = models.CharField(max_length= 10, null=True)
+    contraseña = models.CharField(max_length= 20, null=True)
 
     def __str__(self):
         temp = (str(self.apellido)+ " " + str(self.nombre))
