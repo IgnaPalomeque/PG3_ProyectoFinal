@@ -7,15 +7,21 @@
             {#{ form.as_p}#}
             
             <div class="form-group">
-                <label>Nombre de usuario</label>
-                <input type="text" class="form-control" placeholder="Username" name="username">
+                <label>Nombre</label>
+                <input type="text" class="form-control" placeholder="Nombre" name="first_name">
+                <label>Apellido</label>
+                <input type="text" class="form-control" placeholder="Apellido" name="last_name">
+                <label>Email</label>
+                <input type="email" class="form-control" placeholder="Email" name="email">
+                <label>D.N.I</label>
+                <input type="number" class="form-control" placeholder="D.N.I" name="username">
             </div>
             <div class="form-group">
                 <label>Contraseña</label>
-                <input type="password" class="form-control" name="password1" required="" id="id_password1" placeholder="contraseña">
+                <input type="password" class="form-control" name="password1" placeholder="contraseña">
                 <br>
                 <label>Confirmar contraseña</label>
-                <input type="password" class="form-control" name="password2" required="" id="id_password2" placeholder="repetir contraseña">
+                <input type="password" class="form-control" name="password2" placeholder="repetir contraseña">
             </div>
             {% for err in form.visible_fields %}
                 {% if err.errors %}
@@ -23,6 +29,9 @@
                 {% endif %}
             {% endfor %}
             <button type="submit" class="btn btn-primary">Crear cuenta</button>
+            <br>
+
+            <a href="{% url 'login_url' %}">¿Ya tienes una cuenta? Inicia sesion</a>
         </form>
     </div>
 {% endblock %}

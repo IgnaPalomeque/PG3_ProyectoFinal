@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from .models import *
+from .forms import *
 
 # Create your views here.
 
@@ -15,12 +16,12 @@ def homeView(request):
 
 def registerView(request):
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = registerForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect("login_url")
     else:
-        form = UserCreationForm()
+        form = registerForm()
 
     return render(request, 'registration/register.html', {'form': form})
     
@@ -41,3 +42,8 @@ def alumnooprofesor(request):
         return render (request, 'bibliovirtual/home.html')
     else:
         return render(request, 'registration/register.html')
+
+
+def clase1View(request):
+
+    return render(request, 'clases/clase1.html')

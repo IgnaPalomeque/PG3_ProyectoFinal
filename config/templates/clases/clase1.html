@@ -33,24 +33,29 @@
                     </div>
                 </div>
             </li>
+            <li class="nav-item dropdown">
+                <div class="dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Clase
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="">Material descargable</a>
+                      <a class="dropdown-item" href="">Comprar libros</a>
+                    </div>
+                </div>
+            </li>
         </ul>
         </div>
     </nav>
     <br>
     <br>
-    <div class="container" style="border: 2px solid grey;width: 500px;height: 500px;text-align: center;" >
-        <h1>Informacion de la cuenta</h1>
-        <br>
-        <br>
-        <br>
-        <h3>Nombre:</h3>
-        <h5>{{user.first_name}}</h5>
-        <br>
-        <h3>Apellido:</h3>
-        <h5>{{user.last_name}}</h5>
-        <br>
-        <h3>Mail:</h3>
-        <h5>{{user.email}}</h5>
+    <div class="card" style="width: 18rem;margin: auto;">
+        <img class="card-img-top" src="images/unnamed2.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Material descargable</h5>
+          <p class="card-text">Material de lectura descargable subido por el profesor/a</p>
+          <a href="#" class="btn btn-primary">Ver materiales</a>
+        </div>
     </div>
-    
+
     {% endblock %}
