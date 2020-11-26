@@ -27,35 +27,6 @@ class Curso (models.Model):
         temp = (str(self.anio) + str(self.division))
         return temp
 
-class Persona (models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
-    dni = models.IntegerField(primary_key=True)
-    tipo = models.CharField(max_length = 12, null=True)
-    
-    
-
-class Alumno (Persona):
-    curso = models.ForeignKey('Curso', on_delete=models.CASCADE, null=True,)
-    nombre = models.CharField(max_length= 10, null=True)
-    apellido = models.CharField(max_length= 10, null=True)
-    contraseña = models.CharField(max_length= 20, null=True)
-
-    def __str__(self):
-            temp = (str(self.apellido)+ " " + str(self.nombre))
-            return temp
-
-
-class Profesor (Persona):
-    cursos = []
-    nombre = models.CharField(max_length= 10, null=True)
-    apellido = models.CharField(max_length= 10, null=True)
-    contraseña = models.CharField(max_length= 20, null=True)
-
-    def __str__(self):
-        temp = (str(self.apellido)+ " " + str(self.nombre))
-        return temp
-
-
 class Materia (models.Model):
     titulo = models.CharField(max_length= 20)
     
@@ -77,6 +48,6 @@ class MateriaDescargable (Material):
     pdf = models.FileField(max_length=100,upload_to='pdfdescarga/', blank=True)
 
 class LibroEnVenta (Material):
-    vendedor = models.ForeignKey('Alumno', on_delete=models.CASCADE, null=True,)
+    #vendedor = models.ForeignKey('Persona', on_delete=models.CASCADE, null=True,)
     foto_portada = models.ImageField(max_length=100, upload_to='fotos_portada/', blank=True)
     
