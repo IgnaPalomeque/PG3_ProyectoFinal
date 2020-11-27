@@ -31,17 +31,11 @@
                         </div>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
-                    <div class="dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Clases
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="{% url 'clase1_url' %}">Clase 1</a>
-                          <a class="dropdown-item" href="#">Clase 2</a>
-                          <a class="dropdown-item" href="#">Clase 3</a>
-                        </div>
-                    </div>
+                <li class="nav-item">
+                  <a class="nav-link" href="">Materiales subidos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="">Subir material</a>
                 </li>
             </ul>
             </div>
@@ -51,8 +45,8 @@
             <a>{{i.titulo}}</a>
           {% endfor %}
         </div>
-        <div class="container" style="margin: auto;border: 2px solid grey;width: 500px;text-align: center;">
-          <h1>Bienvenido Profesor</h1>
+        <div class="container" style="margin: auto;border: 2px solid grey;width: 500px">
+          <h1>Bienvenido {{ user.first_name }}</h1>
           <form method="POST" class="mt-3" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}

@@ -18,4 +18,4 @@ class registerForm(UserCreationForm):
 class uploadMaterial(ModelForm):
     class Meta:
         model = MaterialDescargable
-        fields = ('materia', 'titulo', 'curso', 'descripcion', 'pdf')
+        fields = ('curso', 'materia', 'titulo', 'descripcion', 'pdf')
