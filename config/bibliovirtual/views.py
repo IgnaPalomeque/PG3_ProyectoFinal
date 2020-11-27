@@ -40,3 +40,13 @@ def accountView(request):
 def clase1View(request):
 
     return render(request, 'clases/clase1.html')
+
+def profesorhomeview (request):
+    material = MaterialDescargable.objects.all()
+    form =uploadMaterial(request.POST, request.FILES)
+    if request.method == "POST":
+        if form.is_valid():
+            form.save()
+            return redirect("homep_url")
+    form = uploadMaterial()
+    return render(request, 'bibliovirtual/profesores_home.html', {'form': form, 'material': material})

@@ -27,9 +27,6 @@ class Curso (models.Model):
         temp = (str(self.anio) + str(self.division))
         return temp
 
-class Materia (models.Model):
-    titulo = models.CharField(max_length= 20)
-    
 class Material (models.Model):
     materias = [
         ("L","Lengua"), 
@@ -44,7 +41,7 @@ class Material (models.Model):
     descripcion = models.CharField(max_length= 200, default = " ")
     
 
-class MateriaDescargable (Material):
+class MaterialDescargable (Material):
     pdf = models.FileField(max_length=100,upload_to='pdfdescarga/', blank=True)
 
 class LibroEnVenta (Material):

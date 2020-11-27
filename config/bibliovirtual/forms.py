@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.forms import ModelForm
+from .models import MaterialDescargable
 
 
 
@@ -12,3 +14,8 @@ class registerForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'password1', 'password2', 'email', 'first_name', 'last_name',)
+
+class uploadMaterial(ModelForm):
+    class Meta:
+        model = MaterialDescargable
+        fields = ('materia', 'titulo', 'curso', 'descripcion', 'pdf')

@@ -5,7 +5,7 @@ from .models import *
 class LibroEnVentaAdmin (admin.ModelAdmin):
     list_display = ('titulo','materia', 'descripcion')
 
-class MateriaDescargableAdmin (admin.ModelAdmin):
+class MaterialDescargableAdmin (admin.ModelAdmin):
     fieldsets = (
             ('Información material', {
                 'fields': (
@@ -14,13 +14,13 @@ class MateriaDescargableAdmin (admin.ModelAdmin):
             }),
             ('Informacion extra', {
                 'fields': (
-                    'foto_portada', 'descripcion',
+                    'descripcion',
                 ),
             }),
         )
 class CursoAdmin (admin.ModelAdmin):
     list_display = ('anio','division',)
 
-admin.site.register (MateriaDescargable,MateriaDescargableAdmin,)
+admin.site.register (MaterialDescargable,MaterialDescargableAdmin,)
 admin.site.register (LibroEnVenta,LibroEnVentaAdmin,)
 admin.site.register (Curso,CursoAdmin,) 
