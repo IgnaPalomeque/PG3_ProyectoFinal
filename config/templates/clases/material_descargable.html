@@ -42,8 +42,8 @@
       <br>
       <br>
       <div class="container" style="margin: auto;">
-            {% for i in titulo %}
-                <div class="card" style="width: 250px;margin: auto;display: inline-block;" >
+            {% for i in material %}
+                <div class="card" style="width: 250px;margin: auto;display: inline-block;text-align: center;" >
                     <img class="card-img-top" src="{% static "bibliovirtual/asd.jpg" %}" alt="Card image cap">
                     <div class="card-body">
                     <h5 class="card-title">{{i.titulo}}</h5>
@@ -55,6 +55,4 @@
                 </div>
             {% endfor %}
       </div>
-      
-
     {% endblock %}

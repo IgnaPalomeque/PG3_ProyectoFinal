@@ -1,0 +1,47 @@
+{% extends "bibliovirtual/home.html" %}
+    {% block content %}
+    {% load static %}
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand">{{user.first_name}}</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                <a class="nav-link" href="{% url 'home_url' %}">Inicio</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Cuenta
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="{% url 'account_url' %}">Cuenta y configuracion</a>
+                          <a class="dropdown-item" href="#">¿Hay algun problema?</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="{% url 'logout_url' %}">Cerrar sesion</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="">Materiales subidos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="">Subir material</a>
+                </li>
+            </ul>
+            </div>
+        </nav>
+        {% for i in material %}
+                <div class="card" style="width: 250px;margin: auto;display: inline-block;text-align: center;" >
+                    <img class="card-img-top" src="{% static "bibliovirtual/asd.jpg" %}" alt="Card image cap">
+                    <div class="card-body">
+                    <h5 class="card-title">{{i.titulo}}</h5>
+                    <p class="card-text">Descripcion:</p>
+                    <p class="card-text">{{i.descripcion}}</p>
+                    <p class="card-text">Materia: {{i.materia}}</p>
+                    <p class="card-text">Curso: {{i.curso}}</p>
+                    <a href="#" class="btn btn-primary">Descargar</a>
+                    </div>
+                </div>
+        {% endfor %}
+
+    {% endblock %}

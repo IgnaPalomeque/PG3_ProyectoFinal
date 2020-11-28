@@ -1,0 +1,40 @@
+{% extends "bibliovirtual/home.html" %}
+    {% block content %}
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand">{{user.first_name}}</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                <a class="nav-link" href="{% url 'home_url' %}">Inicio</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Cuenta
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="{% url 'account_url' %}">Cuenta y configuracion</a>
+                          <a class="dropdown-item" href="#">¿Hay algun problema?</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="{% url 'logout_url' %}">Cerrar sesion</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'materiales_subidos_url' %}">Materiales subidos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="">Subir material</a>
+                </li>
+            </ul>
+            </div>
+        </nav>
+        <div class="container" style="margin: auto;border: 2px solid grey;width: 500px">
+          <h1>Bienvenido {{ user.first_name }}</h1>
+          <form method="POST" class="mt-3" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Subir</button>
+          </form>
+        </div>
+    {% endblock %}

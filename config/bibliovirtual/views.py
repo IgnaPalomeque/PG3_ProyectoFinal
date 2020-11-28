@@ -53,7 +53,7 @@ def profesoresHomeView (request):
                     return redirect("profesores_home_url")
             else:
                 form = uploadMaterial()
-            return render(request, 'bibliovirtual/profesores_home.html', {'form': form, 'material': material})
+            return render(request, 'profesores/profesores_home.html', {'form': form, 'material': material})
             
         else:
             return redirect ('home_url')
@@ -62,5 +62,18 @@ def profesoresHomeView (request):
 
 
 def materialDescargableView(request):
-    titulo = MaterialDescargable.objects.all()
-    return render(request,"clases/material_descargable.html",{'titulo':titulo})
+    material = MaterialDescargable.objects.all()
+    return render(request,"clases/material_descargable.html",{'material':material})
+
+
+def materialesSubidosView(request):
+    material = MaterialDescargable.objects.all()
+    if request.user.is_authenticated:
+        if request.user.groups.filter(name='profesores').exists():
+            return render(request,"profesores/materiales_subidos.html",{'material':material})
+        else:
+            return redirect ('home_url')
+    else:
+        return redirect("login_url")
+    
+    
