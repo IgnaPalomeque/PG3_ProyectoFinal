@@ -5,15 +5,19 @@ from django.contrib.auth import authenticate
 # Create your models here.
 
 
+class Alumno (models.Model):     
+    user = models.OneToOneField(User, on_delete=models.CASCADE)     
+    curso = models.OneToOneField('Curso', on_delete=models.CASCADE, null=True,)
+
 class Curso (models.Model):
     anios = [
-        ("1","1 año"), 
-        ("2","2 año"),
-        ("3","3 año"),
-        ("4","4 año"), 
-        ("5","5 año"),
-        ("6","6 año"),
-        ("7","7 año"),
+        ("1 año","1ero"), 
+        ("2","2do"),
+        ("3","3ero"),
+        ("4","4to"), 
+        ("5","5to"),
+        ("6","6to"),
+        ("7","7mo"),
     ]
     anio = models.CharField(max_length= 10,choices = anios, null=True)
     divisiones = [
@@ -27,22 +31,33 @@ class Curso (models.Model):
         temp = (str(self.anio) + str(self.division))
         return temp
 
+    def get_curso(self):
+        temp = self.anio
+        return temp
+    
+    def get_division (self):
+        temp = self.division
+        return temp
+
 class Material (models.Model):
     materias = [
-        ("L","Lengua"), 
-        ("B", "Biologia"),
-        ("M", "Matematica"),
-        ("I", "Ingles"),
-        ("P", "Programacion"),
+        ("Lengua","Lengua"), 
+        ("Biologia", "Biologia"),
+        ("Matematica", "Matematica"),
+        ("Ingles", "Ingles"),
+        ("Programacion", "Programacion"),
     ]
     materia = models.CharField(max_length= 20,choices = materias)
     titulo = models.CharField(max_length= 20,primary_key=True)
     curso = models.ForeignKey('Curso', on_delete=models.CASCADE, null=True,)
-    descripcion = models.CharField(max_length= 200, default = " ")
+    descripcion = models.CharField(max_length= 200, default = "")
     
 
 class MaterialDescargable (Material):
     pdf = models.FileField(max_length=100,upload_to='pdfdescarga/', blank=True)
+    def __str__(self):
+        temp = (str(self.titulo) +" "+ str(self.materia) +" "+ str(self.curso))
+        return temp
 
 class LibroEnVenta (Material):
     #vendedor = models.ForeignKey('Persona', on_delete=models.CASCADE, null=True,)

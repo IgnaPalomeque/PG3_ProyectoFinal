@@ -33,6 +33,17 @@
                       </div>
                   </div>
               </li>
+              <li class="nav-item dropdown">
+                <div class="dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Libros
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="">Vender libro</a>
+                      <a class="dropdown-item" href="">Comprar libro</a>
+                    </div>
+                </div>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="">Material descargable</a>
               </li>
@@ -43,16 +54,20 @@
       <br>
       <div class="container" style="margin: auto;">
             {% for i in material %}
+              {% if i.curso.get_curso == user.alumno.curso.get_curso %}
+                {% if i.curso.get_division == user.alumno.curso.get_division %}
                 <div class="card" style="width: 250px;margin: auto;display: inline-block;text-align: center;" >
                     <img class="card-img-top" src="{% static "bibliovirtual/asd.jpg" %}" alt="Card image cap">
                     <div class="card-body">
                     <h5 class="card-title">{{i.titulo}}</h5>
-                    <p class="card-text">{{i.descripcion}}</p>
+                    <p class="card-text" style="height: 50px;">{{i.descripcion}}</p>
                     <p class="card-text">{{i.materia}}</p>
                     <p class="card-text">{{i.curso}}</p>
                     <a href="#" class="btn btn-primary">Descargar</a>
                     </div>
                 </div>
+                {% endif %}
+              {% endif %}
             {% endfor %}
       </div>
     {% endblock %}
