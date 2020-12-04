@@ -1,4 +1,4 @@
-#!/home/ginopepi/.virtualenvs/proyectofinal/bin/python
+#!C:\Users\ignap\Envs\proyectofinal\Scripts\python.exe
 from django.core import management
 
 if __name__ == "__main__":

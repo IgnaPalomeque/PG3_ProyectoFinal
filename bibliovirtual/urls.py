@@ -1,7 +1,7 @@
 from django.urls import path,include
 from django.contrib.auth.views import LoginView
 from . import views
-from .views import registerView, homeView, logoutView, accountView, clase1View, profesoresHomeView,materialDescargableView,materialesSubidosView, venderLibroView, compraLibroView
+from .views import *
 from django.contrib.auth import views as auth_views
 
 
@@ -15,6 +15,6 @@ urlpatterns = [
     path('profesores/home',profesoresHomeView, name="profesores_home_url"),
     path('clases/material_descargable',materialDescargableView, name="material_descargable_url"),
     path('profesores/materiales_subidos',materialesSubidosView, name="materiales_subidos_url"),
-    path('clases/compra_libros', compraLibroView, name="compra_libro_url"),
-    path('clases/vender_libro',venderLibroView, name="vender_libro_url")
+    path('clases/publicar_libros', publicarLibroView, name="publicar_libro_url"),
+    path('clases/comprar_libro',comprarLibroView, name="comprar_libro_url")
 ]

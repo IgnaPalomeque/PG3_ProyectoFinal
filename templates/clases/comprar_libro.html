@@ -1,15 +1,6 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  </head>
-  <body>
+{% extends "bibliovirtual/home.html" %}
     {% block content %}
+    {% load static %}
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand">{{user.first_name}}</a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -48,23 +39,31 @@
                         Libros
                       </a>
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="{% url 'publicar_libro_url' %}">Vender libro</a>
-                        <a class="dropdown-item" href="{% url 'comprar_libro_url' %}">Comprar libro</a>
+                        <a class="dropdown-item" href="">Vender libro</a>
+                        <a class="dropdown-item" href="">Comprar libro</a>
                       </div>
                   </div>
-              </li>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'publicar_libro_url' %}">Vender Libro</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home_url' %}">Comprar Libro</a>
+                </li>
             </ul>
             </div>
         </nav>
+        {% for i in libro %}
+                <div class="card" style="width: 250px;margin: auto;display: inline-block;text-align: center;" >
+                    <img class="card-img-top" src="{% static "bibliovirtual/asd.jpg" %}" alt="Card image cap">
+                    <div class="card-body">
+                    <h5 class="card-title">{{i.titulo}}</h5>
+                    <p class="card-text">Descripcion:</p>
+                    <p class="card-text">{{i.descripcion}}</p>
+                    <p class="card-text">Materia: {{i.materia}}</p>
+                    <p class="card-text">Curso: {{i.curso}}</p>
+                    </div>
+                </div>
+        {% endfor %}
+        
     {% endblock %}
-
-
-
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
-</html>

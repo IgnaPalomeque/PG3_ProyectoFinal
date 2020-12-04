@@ -48,7 +48,7 @@ class Material (models.Model):
         ("Programacion", "Programacion"),
     ]
     materia = models.CharField(max_length= 20,choices = materias)
-    titulo = models.CharField(max_length= 20,primary_key=True)
+    titulo = models.CharField(max_length= 100,primary_key=True)
     curso = models.ForeignKey('Curso', on_delete=models.CASCADE, null=True,)
     descripcion = models.CharField(max_length= 200, default = "")
 

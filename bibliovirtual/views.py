@@ -76,7 +76,7 @@ def materialesSubidosView(request):
     else:
         return redirect("login_url")
     
-def venderLibroView(request):
+def publicarLibroView(request):
     if request.method == "POST":
         form = venderLibroForm(request.POST)
         if form.is_valid():
@@ -85,8 +85,15 @@ def venderLibroView(request):
     else:
         form = venderLibroForm()
 
-    return render(request,"clases/venta_libros.html",{'form':form})
+    return render(request,"clases/publicar_libro.html",{'form':form})
 
-def compraLibroView (request):
+
+def comprarLibroView(request):
+
     libro = LibroEnVenta.objects.all()
-    return render(request, 'clases/compra_libros.html', {'libro': libro})
+
+    return render(request,"clases/comprar_libro.html",{'libro':libro})
+
+
+
+    
